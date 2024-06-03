@@ -43,6 +43,11 @@ export const theme = {
     },
     Paragraph4: {
       color: "#8E8E8E",
+      fontSize: "18px",
+      fontWeight: 400,
+    },
+    Paragraph5: {
+      color: "#191F28",
       fontSize: "16px",
       fontWeight: 400,
     },
