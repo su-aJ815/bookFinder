@@ -6,64 +6,59 @@ export const theme = {
   },
   typography: {
     //web
-    title1: {
+    Heading1: {
       color: "#191F28",
-      fontSize: "48px",
+      fontSize: "50px",
       fontWeight: 700,
     },
-    title2: {
-      color: "#30343A",
+    Heading2: {
+      color: "#191F28",
+      fontSize: "40px",
+      fontWeight: 700,
+    },
+    Heading3: {
+      color: "#191F28",
       fontSize: "20px",
       fontWeight: 700,
     },
-    subTitle: {
+    Heading4: {
       color: "#B6B0A3",
       fontSize: "16px",
       fontWeight: 600,
     },
-    describtion1: {
+    Paragraph1: {
       color: "#191F28",
-      fontSize: "16px",
-      fontWeight: 400,
-    },
-    describtion2: {
-      color: "#191F28",
-      fontSize: "16px",
+      fontSize: "15px",
       fontWeight: 500,
     },
-    describtion3: {
+    Paragraph2: {
       color: "#191F28",
       fontSize: "14px",
       fontWeight: 400,
     },
-    cardTitle1: {
+    Paragraph3: {
       color: "#191F28",
-      fontSize: "36px",
+      fontSize: "32px",
       fontWeight: 700,
     },
-    cardTitle2: {
-      color: "#191F28",
-      fontSize: "24px",
-      fontWeight: 700,
-    },
-    cardDescribtion: {
-      color: "#191F28",
-      fontSize: "20px",
-      fontWeight: 400,
-    },
-    boxSubtitle: {
+    Paragraph4: {
       color: "#8E8E8E",
       fontSize: "16px",
       fontWeight: 400,
     },
-    boxDetail: {
+    BookTitle: {
       color: "#191F28",
-      fontSize: "16px",
-      fontWeight: 500,
+      fontSize: "32px",
+      fontWeight: 700,
     },
-    buttonText: {
+    BookDetail: {
+      color: "#191F28",
+      fontSize: "18px",
+      fontWeight: 400,
+    },
+    ButtonText: {
       color: "#fafafa",
-      fontSize: "20px",
+      fontSize: "18px",
       fontWeight: 400,
     },
 
