@@ -4,6 +4,7 @@ import styled from "styled-components";
 import mainImg from "../assets/img/mainImg.jpg";
 import LogoImg from "../assets/img/logoBlack.png";
 import SearchBar from "../components/SearchBar";
+import BookCard from "../components/BookCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faPenFancy } from "@fortawesome/free-solid-svg-icons";
@@ -82,6 +83,15 @@ const FeatureBox = styled.div`
   // background-color: green;
 `;
 
+const BestSeller = styled.div`
+  width: 100vw;
+  height: auto;
+`;
+
+const BookStackBox = styled.div`
+  background-color: #f3eee1;
+`;
+
 function Home() {
   return (
     <div>
@@ -153,6 +163,17 @@ function Home() {
           </Paragraph2>
         </FeatureBox>
       </div>
+      <BestSeller className="flex flex-row mt-24 mb-9">
+        <div className="w-10 h-20 bg-zinc-900 ml-64 mr-5 rounded-l-full" />
+        <div>
+          <Heading4>금주의 베스트셀러</Heading4>
+          <Heading2>다른 애서가들이 자주 찾은 책들이에요</Heading2>
+        </div>
+      </BestSeller>
+      <div className="w-auto h-auto flex flex-row ml-64 mr-64">
+        <BookCard />
+      </div>
+      <BookStackBox className="w-full h-96 bg-red-400 relative z-0"></BookStackBox>
     </div>
   );
 }
