@@ -6,6 +6,7 @@ import CarouselItem from "./CarouselItem";
 
 interface BookCardProps extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
+  variant?: "variant1"; // BookCard 컴포넌트에서 사용할 variant를 정의합니다.
 }
 
 const responsive: CarouselProps["responsive"] = {
@@ -41,7 +42,11 @@ const CarouselContainer = styled.div`
   margin-bottom: 100px;
 `;
 
-function BookCard({ className, ...props }: BookCardProps) {
+function BookCard({
+  className,
+  variant = "variant1",
+  ...props
+}: BookCardProps) {
   return (
     <CarouselContainer>
       <Carousel
@@ -57,7 +62,12 @@ function BookCard({ className, ...props }: BookCardProps) {
         removeArrowOnDeviceType={["tablet", "mobile"]}
       >
         {items.map((item, index) => (
-          <CarouselItem key={index} title={item.title} detail={item.detail} />
+          <CarouselItem
+            key={index}
+            title={item.title}
+            detail={item.detail}
+            variant={"variant1"}
+          />
         ))}
       </Carousel>
     </CarouselContainer>

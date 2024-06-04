@@ -2,16 +2,30 @@ import React from "react";
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 import mainImg from "../assets/img/mainImg.jpg";
+import backgroundBox from "../assets/img/backgroundBox.png";
 import bookStack from "../assets/img/bookStack.png";
 import LogoImg from "../assets/img/logoBlack.png";
 import LogoWhite from "../assets/img/logoWhite.png";
 import SearchBar from "../components/SearchBar";
 import BookCard from "../components/BookCard";
+import CarouselItem from "../components/CarouselItem";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faPenFancy } from "@fortawesome/free-solid-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { faChartSimple } from "@fortawesome/free-solid-svg-icons";
+
+interface HoomProps extends React.HTMLAttributes<HTMLInputElement> {
+  className?: string;
+  variant?: "variant1"; // BookCard 컴포넌트에서 사용할 variant를 정의합니다.
+}
+
+const bookInfo = [
+  { title: "책제목1", detail: "작가/출판사" },
+  { title: "책제목1", detail: "작가/출판사" },
+  { title: "책제목1", detail: "작가/출판사" },
+  { title: "책제목1", detail: "작가/출판사" },
+];
 
 //Text
 const Heading1 = styled.h1`
@@ -94,7 +108,7 @@ const BookStackBox = styled.div`
   background-color: #f3eee1;
 `;
 
-function Home() {
+function Home({ className, variant = "variant1", ...props }: HoomProps) {
   return (
     <div>
       <div className="w-100vw h-auto flex flex-row">
@@ -217,8 +231,26 @@ function Home() {
           </div>
         </div>
       </BookStackBox>
-      <div className="w-full h-auto pt-24 pb-24 bg-red-400 text-center">
+      <div className="w-full h-auto pt-24 pb-24 text-center relative">
         <Heading2>XXX작가님의 신작을 만나보세요</Heading2>
+        <div className="w-auto h-auto mt-9 ml-64 mr-64 flex flex-row justify-between">
+          {bookInfo.map((item, index) => (
+            <CarouselItem key={index} title={item.title} detail={item.detail} />
+          ))}
+        </div>
+        <img
+          src={backgroundBox}
+          alt=""
+          className="rounded-l-lg"
+          style={{
+            width: "850px",
+            height: "350px",
+            zIndex: "-1",
+            position: "absolute",
+            bottom: "0",
+            right: "0",
+          }}
+        />
       </div>
     </div>
   );
