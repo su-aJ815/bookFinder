@@ -9,18 +9,16 @@ interface CarouselItemProps {
 }
 
 const ItemContainer = styled.div`
-  width: 500px;
-  //   height: 480px;
   text-align: center;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border: 0.3px solid #d9d9d9;
-  padding-top: 12px;
+  margin-left: 40px;
 `;
 
 const ItemImage = styled.img`
   width: 256px;
-  height: 372px;
-  margin: 36px auto 12px;
+  height: 352px;
+  margin: 36px auto 8px auto;
 `;
 
 const BookTitle = styled.h1`
@@ -33,6 +31,7 @@ const BookDetail = styled.h1`
   color: ${theme.typography.BookDetail.color};
   font-size: ${theme.typography.BookDetail.fontSize};
   font-weight: ${theme.typography.BookDetail.fontWeight};
+  margin-bottom: 36px;
 `;
 
 const CarouselItem: React.FC<CarouselItemProps> = ({ title, detail }) => {

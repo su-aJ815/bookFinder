@@ -38,7 +38,6 @@ const items = [
 const CarouselContainer = styled.div`
   width: 100%;
   height: auto;
-  padding-top: 12px;
   margin-bottom: 100px;
 `;
 
@@ -56,7 +55,6 @@ function BookCard({ className, ...props }: BookCardProps) {
         keyBoardControl={true}
         transitionDuration={500}
         removeArrowOnDeviceType={["tablet", "mobile"]}
-        dotListClass="custom-dot-list-style"
       >
         {items.map((item, index) => (
           <CarouselItem key={index} title={item.title} detail={item.detail} />

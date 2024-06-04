@@ -2,7 +2,9 @@ import React from "react";
 import { theme } from "../styles/theme";
 import styled from "styled-components";
 import mainImg from "../assets/img/mainImg.jpg";
+import bookStack from "../assets/img/bookStack.png";
 import LogoImg from "../assets/img/logoBlack.png";
+import LogoWhite from "../assets/img/logoWhite.png";
 import SearchBar from "../components/SearchBar";
 import BookCard from "../components/BookCard";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -173,7 +175,51 @@ function Home() {
       <div className="w-auto h-auto flex flex-row ml-64 mr-64">
         <BookCard />
       </div>
-      <BookStackBox className="w-full h-96 bg-red-400 relative z-0"></BookStackBox>
+      <BookStackBox className="w-full h-auto pt-24 pb-24 flex flex-row">
+        <img
+          style={{ width: "550px", height: "450px" }}
+          className="ml-72"
+          src={bookStack}
+          alt=""
+        />
+        <div
+          className="w-1/2 ml-auto flex flex-col pl-12"
+          style={{ height: "400px" }}
+        >
+          <div
+            className="rounded-l-full mt-12"
+            style={{
+              width: "100%",
+              height: "84px",
+              backgroundColor: "#11100B",
+              paddingTop: "18px",
+              paddingLeft: "80px",
+            }}
+          >
+            <img
+              style={{
+                width: "230px",
+                height: "50px",
+              }}
+              src={LogoWhite}
+              alt=""
+            />
+          </div>
+          <div className="w-3/5 h-auto mt-8 ml-20">
+            <Paragraph5>
+              “책은 우리가 탐험하지 않은 세계로 우리를 안내하는 지침서이다.
+              그것은 우리의 말을 초월하여 우리의 마음을 확장하며, 우리의 경험을
+              더 풍부하게 만들어 준다. 책은 우리를 과거와 미래, 심지어 다른
+              세계로도 안내해준다. 따라서 책을 통해 여행하는 것은 언제나 우리의
+              영혼을 풍요롭게 만든다.”
+            </Paragraph5>
+            <Paragraph5>- 에드워드 더스터튼</Paragraph5>
+          </div>
+        </div>
+      </BookStackBox>
+      <div className="w-full h-auto pt-24 pb-24 bg-red-400 text-center">
+        <Heading2>XXX작가님의 신작을 만나보세요</Heading2>
+      </div>
     </div>
   );
 }
