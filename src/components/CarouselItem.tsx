@@ -42,6 +42,7 @@ const ItemContainer2 = styled.div`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border: 0.3px solid #d9d9d9;
   background-color: #ffffff;
+  text-align: center;
 `;
 
 const ItemImage2 = styled.img`
@@ -54,6 +55,10 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
   detail,
   variant,
 }) => {
+  const handleClick = () => {
+    alert("Div clicked!");
+  };
+
   if (variant === "variant1") {
     return (
       <ItemContainer>
@@ -64,7 +69,7 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
     );
   } else {
     return (
-      <ItemContainer2 className="w-96">
+      <ItemContainer2 onClick={handleClick} className="w-96">
         <ItemImage2 className="w-4/5" src={mainImg} alt="" />
         <BookTitle>{title}</BookTitle>
         <BookDetail>{detail}</BookDetail>

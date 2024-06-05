@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Carousel, { CarouselProps } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CarouselItem from "./CarouselItem";
+import instance from "../API/axiosConfig";
 
 interface BookCardProps extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -28,25 +29,50 @@ const responsive: CarouselProps["responsive"] = {
   },
 };
 
-const items = [
-  { title: "ITEM1", detail: "작가/출판사" },
-  { title: "ITEM2", detail: "작가/출판사" },
-  { title: "ITEM3", detail: "작가/출판사" },
-  { title: "ITEM4", detail: "작가/출판사" },
-  { title: "ITEM5", detail: "작가/출판사" },
-];
-
 const CarouselContainer = styled.div`
   width: 100%;
   height: auto;
   margin-bottom: 100px;
 `;
 
-function BookCard({
-  className,
-  variant = "variant1",
-  ...props
-}: BookCardProps) {
+function BookCard({ className, variant = "variant1" }: BookCardProps) {
+  const [searchedBooks, setSearchedBooks] = useState<any[]>([]);
+
+  useEffect(() => {
+    // 검색할 책 제목
+    const query = "자바스크립트";
+
+    // 책 검색 함수 호출
+    async function searchBooks() {
+      try {
+        const response = await instance.get("", {
+          params: {
+            query: query,
+            sort: "accuracy",
+            // page: 1,
+            // size: 10
+          },
+        });
+
+        //검색 결과 출력
+        console.log(response.data.documents.slice(0, 4));
+        setSearchedBooks(response.data.documents.slice(0, 4));
+      } catch (error) {
+        console.error("책 검색 오류:", error);
+      }
+    }
+
+    // 책 검색 함수 호출
+    searchBooks();
+  }, []); // 빈 배열을 전달하여 컴포넌트가 처음 렌더링될 때만 실행
+
+  // 상태를 기반으로 배열 생성
+  const bookItems = searchedBooks.map((searchedBooks) => ({
+    title: searchedBooks.title,
+    detail: `${searchedBooks.authors.join(", ")}/${searchedBooks.publisher}`,
+    // 필요한 다른 속성들을 추가할 수 있습니다.
+  }));
+
   return (
     <CarouselContainer>
       <Carousel
@@ -61,7 +87,7 @@ function BookCard({
         transitionDuration={500}
         removeArrowOnDeviceType={["tablet", "mobile"]}
       >
-        {items.map((item, index) => (
+        {bookItems.map((item, index) => (
           <CarouselItem
             key={index}
             title={item.title}

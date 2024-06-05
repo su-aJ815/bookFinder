@@ -22,9 +22,9 @@ interface HoomProps extends React.HTMLAttributes<HTMLInputElement> {
 
 const bookInfo = [
   { title: "책제목1", detail: "작가/출판사" },
-  { title: "책제목1", detail: "작가/출판사" },
-  { title: "책제목1", detail: "작가/출판사" },
-  { title: "책제목1", detail: "작가/출판사" },
+  { title: "책제목2", detail: "작가/출판사" },
+  { title: "책제목3", detail: "작가/출판사" },
+  { title: "책제목4", detail: "작가/출판사" },
 ];
 
 //Text
@@ -241,9 +241,8 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
         <img
           src={backgroundBox}
           alt=""
-          className="rounded-l-lg"
+          className="rounded-l-lg w-2/5"
           style={{
-            width: "850px",
             height: "350px",
             zIndex: "-1",
             position: "absolute",
