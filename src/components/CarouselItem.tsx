@@ -7,6 +7,7 @@ interface CarouselItemProps {
   title: string;
   detail: string;
   variant?: "variant1"; // variant 타입을 정의합니다.
+  onClick?: () => void; // 클릭 핸들러를 추가합니다.
 }
 
 //Text
@@ -14,6 +15,7 @@ const BookTitle = styled.h1`
   color: ${theme.typography.BookTitle.color};
   font-size: ${theme.typography.BookTitle.fontSize};
   font-weight: ${theme.typography.BookTitle.fontWeight};
+  margin: 4px auto 8px auto;
 `;
 
 const BookDetail = styled.h1`
@@ -28,6 +30,7 @@ const ItemContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border: 0.3px solid #d9d9d9;
   margin-left: 40px;
+  height: 540px;
 `;
 
 const ItemImage = styled.img`
@@ -54,25 +57,26 @@ const CarouselItem: React.FC<CarouselItemProps> = ({
   title,
   detail,
   variant,
+  onClick,
 }) => {
-  const handleClick = () => {
-    alert("Div clicked!");
-  };
-
   if (variant === "variant1") {
     return (
-      <ItemContainer>
+      <ItemContainer onClick={onClick}>
         <ItemImage src={mainImg} alt="" />
-        <BookTitle>{title}</BookTitle>
-        <BookDetail className="mb-9">{detail}</BookDetail>
+        <div className="w-4/5 mx-auto">
+          <BookTitle>{title}</BookTitle>
+          <BookDetail className="mb-9">{detail}</BookDetail>
+        </div>
       </ItemContainer>
     );
   } else {
     return (
-      <ItemContainer2 onClick={handleClick} className="w-96">
+      <ItemContainer2 onClick={onClick} className="w-96">
         <ItemImage2 className="w-4/5" src={mainImg} alt="" />
-        <BookTitle>{title}</BookTitle>
-        <BookDetail>{detail}</BookDetail>
+        <div className="w-4/5 mx-auto">
+          <BookTitle>{title}</BookTitle>
+          <BookDetail>{detail}</BookDetail>
+        </div>
       </ItemContainer2>
     );
   }

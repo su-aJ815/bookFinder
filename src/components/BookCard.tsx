@@ -4,6 +4,7 @@ import Carousel, { CarouselProps } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import CarouselItem from "./CarouselItem";
 import instance from "../API/axiosConfig";
+import BookDetail from "./BookDetail";
 
 interface BookCardProps extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -37,6 +38,8 @@ const CarouselContainer = styled.div`
 
 function BookCard({ className, variant = "variant1" }: BookCardProps) {
   const [searchedBooks, setSearchedBooks] = useState<any[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedBook, setSelectedBook] = useState({ title: "", detail: "" });
 
   useEffect(() => {
     // 검색할 책 제목
@@ -55,7 +58,6 @@ function BookCard({ className, variant = "variant1" }: BookCardProps) {
         });
 
         //검색 결과 출력
-        console.log(response.data.documents.slice(0, 4));
         setSearchedBooks(response.data.documents.slice(0, 4));
       } catch (error) {
         console.error("책 검색 오류:", error);
@@ -72,6 +74,15 @@ function BookCard({ className, variant = "variant1" }: BookCardProps) {
     detail: `${searchedBooks.authors.join(", ")}/${searchedBooks.publisher}`,
     // 필요한 다른 속성들을 추가할 수 있습니다.
   }));
+
+  const openPopup = (title: any, detail: any) => {
+    setSelectedBook({ title, detail });
+    setIsOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsOpen(false);
+  };
 
   return (
     <CarouselContainer>
@@ -93,9 +104,16 @@ function BookCard({ className, variant = "variant1" }: BookCardProps) {
             title={item.title}
             detail={item.detail}
             variant={"variant1"}
+            onClick={() => openPopup(item.title, item.detail)}
           />
         ))}
       </Carousel>
+      <BookDetail
+        isOpen={isOpen}
+        onClose={closePopup}
+        title={selectedBook.title}
+        detail={selectedBook.detail}
+      />
     </CarouselContainer>
   );
 }

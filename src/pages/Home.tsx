@@ -8,7 +8,7 @@ import LogoImg from "../assets/img/logoBlack.png";
 import LogoWhite from "../assets/img/logoWhite.png";
 import SearchBar from "../components/SearchBar";
 import BookCard from "../components/BookCard";
-import CarouselItem from "../components/CarouselItem";
+import AuthorBook from "../components/AuthorBook";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { faPenFancy } from "@fortawesome/free-solid-svg-icons";
@@ -19,13 +19,6 @@ interface HoomProps extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
   variant?: "variant1"; // BookCard 컴포넌트에서 사용할 variant를 정의합니다.
 }
-
-const bookInfo = [
-  { title: "책제목1", detail: "작가/출판사" },
-  { title: "책제목2", detail: "작가/출판사" },
-  { title: "책제목3", detail: "작가/출판사" },
-  { title: "책제목4", detail: "작가/출판사" },
-];
 
 //Text
 const Heading1 = styled.h1`
@@ -182,8 +175,8 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
       <BestSeller className="flex flex-row mt-24 mb-9">
         <div className="w-10 h-20 bg-zinc-900 ml-64 mr-5 rounded-l-full" />
         <div>
-          <Heading4>금주의 베스트셀러</Heading4>
-          <Heading2>다른 애서가들이 자주 찾은 책들이에요</Heading2>
+          <Heading4>키워드별 인기 저서</Heading4>
+          <Heading2>'자바스크립트' 관련 책을 찾고계신가요?</Heading2>
         </div>
       </BestSeller>
       <div className="w-auto h-auto flex flex-row ml-64 mr-64">
@@ -232,12 +225,7 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
         </div>
       </BookStackBox>
       <div className="w-full h-auto pt-24 pb-24 text-center relative">
-        <Heading2>XXX작가님의 신작을 만나보세요</Heading2>
-        <div className="w-auto h-auto mt-9 ml-64 mr-64 flex flex-row justify-between">
-          {bookInfo.map((item, index) => (
-            <CarouselItem key={index} title={item.title} detail={item.detail} />
-          ))}
-        </div>
+        <AuthorBook />
         <img
           src={backgroundBox}
           alt=""

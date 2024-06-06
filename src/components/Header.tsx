@@ -37,13 +37,6 @@ function Header() {
         >
           Home
         </Link>
-        <Link
-          className="mt-auto mb-auto no-underline"
-          style={{ color: theme.colors.mainColor }}
-          to="/search"
-        >
-          SearchPage
-        </Link>
       </MenuTab>
     </Positioner>
   );

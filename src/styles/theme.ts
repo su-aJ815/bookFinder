@@ -53,7 +53,7 @@ export const theme = {
     },
     BookTitle: {
       color: "#191F28",
-      fontSize: "32px",
+      fontSize: "24px",
       fontWeight: 700,
     },
     BookDetail: {
