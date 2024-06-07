@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import CarouselItem from "./CarouselItem";
 import instance from "../API/axiosConfig";
 import { theme } from "../styles/theme";
 import styled from "styled-components";
+import BookCard from "./BookCard";
 
 const Heading2 = styled.h1`
   color: ${theme.typography.Heading2.color};
@@ -45,7 +45,7 @@ function AuthorBook() {
       <Heading2>김초엽 작가님의 작품을 만나보세요</Heading2>
       <div className="w-auto h-auto mt-9 ml-64 mr-64 flex flex-row justify-between">
         {bookItems.map((item, index) => (
-          <CarouselItem key={index} title={item.title} detail={item.detail} />
+          <BookCard key={index} title={item.title} detail={item.detail} />
         ))}
       </div>
     </div>

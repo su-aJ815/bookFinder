@@ -7,7 +7,7 @@ import bookStack from "../assets/img/bookStack.png";
 import LogoImg from "../assets/img/logoBlack.png";
 import LogoWhite from "../assets/img/logoWhite.png";
 import SearchBar from "../components/SearchBar";
-import BookCard from "../components/BookCard";
+import CarouselBox from "../components/CarouselBox";
 import AuthorBook from "../components/AuthorBook";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark } from "@fortawesome/free-solid-svg-icons";
@@ -180,7 +180,7 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
         </div>
       </BestSeller>
       <div className="w-auto h-auto flex flex-row ml-64 mr-64">
-        <BookCard />
+        <CarouselBox />
       </div>
       <BookStackBox className="w-full h-auto pt-24 pb-24 flex flex-row">
         <img

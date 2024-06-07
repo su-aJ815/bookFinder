@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { theme } from "../styles/theme";
-import CarouselItem from "../components/CarouselItem";
-import BookDetail from "../components/BookDetail";
+import BookCard from "../components/BookCard";
 import { useLocation } from "react-router-dom";
 import instance from "../API/axiosConfig"; // 카카오 API 설정 파일을 임포트합니다.
 
@@ -52,7 +51,7 @@ function SearchPage() {
       </div>
       <div className="w-auto h-auto ml-64 mr-64 gap-y-16 flex flex-wrap justify-between">
         {results.map((item, index) => (
-          <CarouselItem
+          <BookCard
             key={index}
             title={item.title}
             detail={`${item.authors.join(", ")}/${item.publisher}`}

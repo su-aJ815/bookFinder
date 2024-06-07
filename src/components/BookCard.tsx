@@ -1,121 +1,117 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import Carousel, { CarouselProps } from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import CarouselItem from "./CarouselItem";
-import instance from "../API/axiosConfig";
-import BookDetail from "./BookDetail";
+import mainImg from "../assets/img/mainImg.jpg";
+import { theme } from "../styles/theme";
+import Popup from "./Popup";
 
-interface BookCardProps extends React.HTMLAttributes<HTMLInputElement> {
-  className?: string;
-  variant?: "variant1"; // BookCard 컴포넌트에서 사용할 variant를 정의합니다.
+interface BookCardProps {
+  title: string;
+  detail: string;
+  variant?: "variant1"; // variant 타입을 정의합니다.
+  onClick?: () => void; // 클릭 핸들러를 추가합니다.
 }
 
-const responsive: CarouselProps["responsive"] = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
-
-const CarouselContainer = styled.div`
-  width: 100%;
-  height: auto;
-  margin-bottom: 100px;
+//Text
+const BookTitle = styled.h1`
+  color: ${theme.typography.BookTitle.color};
+  font-size: ${theme.typography.BookTitle.fontSize};
+  font-weight: ${theme.typography.BookTitle.fontWeight};
+  margin: 4px auto 8px auto;
 `;
 
-function BookCard({ className, variant = "variant1" }: BookCardProps) {
-  const [searchedBooks, setSearchedBooks] = useState<any[]>([]);
+const BookDetail = styled.h1`
+  color: ${theme.typography.BookDetail.color};
+  font-size: ${theme.typography.BookDetail.fontSize};
+  font-weight: ${theme.typography.BookDetail.fontWeight};
+`;
+
+//publishing component
+const ItemContainer = styled.div`
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: 0.3px solid #d9d9d9;
+  margin-left: 40px;
+  height: 540px;
+`;
+
+const ItemImage = styled.img`
+  width: 256px;
+  height: 352px;
+  margin: 36px auto 8px auto;
+`;
+
+const ItemContainer2 = styled.div`
+  height: 540px;
+  padding-top: 24px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  border: 0.3px solid #d9d9d9;
+  background-color: #ffffff;
+  text-align: center;
+`;
+
+const ItemImage2 = styled.img`
+  height: 400px;
+  margin: 0 auto 8px auto;
+`;
+
+const BookCard: React.FC<BookCardProps> = ({
+  title,
+  detail,
+  variant,
+  onClick,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedBook, setSelectedBook] = useState({ title: "", detail: "" });
 
-  useEffect(() => {
-    // 검색할 책 제목
-    const query = "자바스크립트";
-
-    // 책 검색 함수 호출
-    async function searchBooks() {
-      try {
-        const response = await instance.get("", {
-          params: {
-            query: query,
-            sort: "accuracy",
-            // page: 1,
-            // size: 10
-          },
-        });
-
-        //검색 결과 출력
-        setSearchedBooks(response.data.documents.slice(0, 4));
-      } catch (error) {
-        console.error("책 검색 오류:", error);
-      }
-    }
-
-    // 책 검색 함수 호출
-    searchBooks();
-  }, []); // 빈 배열을 전달하여 컴포넌트가 처음 렌더링될 때만 실행
-
-  // 상태를 기반으로 배열 생성
-  const bookItems = searchedBooks.map((searchedBooks) => ({
-    title: searchedBooks.title,
-    detail: `${searchedBooks.authors.join(", ")}/${searchedBooks.publisher}`,
-    // 필요한 다른 속성들을 추가할 수 있습니다.
-  }));
-
   const openPopup = (title: any, detail: any) => {
-    setSelectedBook({ title, detail });
     setIsOpen(true);
+    setSelectedBook({ title, detail });
   };
 
   const closePopup = () => {
     setIsOpen(false);
   };
 
-  return (
-    <CarouselContainer>
-      <Carousel
-        swipeable={true} // true로 변경하여 문제 해결
-        draggable={true} // true로 변경하여 문제 해결
-        showDots={false}
-        responsive={responsive}
-        infinite={true}
-        autoPlay={false} // autoPlay 설정 추가
-        autoPlaySpeed={500}
-        keyBoardControl={true}
-        transitionDuration={500}
-        removeArrowOnDeviceType={["tablet", "mobile"]}
-      >
-        {bookItems.map((item, index) => (
-          <CarouselItem
-            key={index}
-            title={item.title}
-            detail={item.detail}
-            variant={"variant1"}
-            onClick={() => openPopup(item.title, item.detail)}
-          />
-        ))}
-      </Carousel>
-      <BookDetail
-        isOpen={isOpen}
-        onClose={closePopup}
-        title={selectedBook.title}
-        detail={selectedBook.detail}
-      />
-    </CarouselContainer>
-  );
-}
+  if (variant === "variant1") {
+    return (
+      <>
+        <ItemContainer onClick={() => openPopup(title, detail)}>
+          <ItemImage src={mainImg} alt="" />
+          <div className="w-4/5 mx-auto">
+            <BookTitle>{title}</BookTitle>
+            <BookDetail className="mb-9">{detail}</BookDetail>
+          </div>
+        </ItemContainer>
+        <Popup
+          isOpen={isOpen}
+          onClose={closePopup}
+          title={selectedBook.title}
+          detail={selectedBook.detail}
+        />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <ItemContainer2
+          onClick={() => openPopup(title, detail)}
+          className="w-96"
+        >
+          <ItemImage2 className="w-4/5" src={mainImg} alt="" />
+          <div className="w-4/5 mx-auto">
+            <BookTitle>{title}</BookTitle>
+            <BookDetail>{detail}</BookDetail>
+          </div>
+        </ItemContainer2>
+        <Popup
+          isOpen={isOpen}
+          onClose={closePopup}
+          title={selectedBook.title}
+          detail={selectedBook.detail}
+        />
+      </>
+    );
+  }
+};
 
 export default BookCard;
