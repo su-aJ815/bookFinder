@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import mainImg from "../assets/img/mainImg.jpg";
 import { theme } from "../styles/theme";
 import Popup from "./Popup";
-import '../styles/bookcard.scss';
+import "../styles/bookcard.scss";
 
 interface BookCardProps {
   title: string;
   detail: string;
+  isbn: string;
+  bstatus?: any;
+  price?: string;
+  datetime?: any;
+  thumbnail?: string;
   variant?: "variant1"; // variant 타입을 정의합니다.
   onClick?: () => void; // 클릭 핸들러를 추가합니다.
 }
@@ -31,14 +35,43 @@ const BookCard: React.FC<BookCardProps> = ({
   title,
   detail,
   variant,
+  isbn,
+  price,
+  bstatus,
+  datetime,
+  thumbnail,
   onClick,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedBook, setSelectedBook] = useState({ title: "", detail: "" });
+  const [selectedBook, setSelectedBook] = useState({
+    title: "",
+    detail: "",
+    isbn: "",
+    price: "",
+    bstatus: "",
+    datetime: "",
+    thumbnail: "",
+  });
 
-  const openPopup = (title: any, detail: any) => {
+  const openPopup = (
+    title: any,
+    detail: any,
+    isbn: any,
+    price: any,
+    bstatus: any,
+    datetime: any,
+    thumbnail: any,
+  ) => {
     setIsOpen(true);
-    setSelectedBook({ title, detail });
+    setSelectedBook({
+      title,
+      detail,
+      isbn,
+      price,
+      bstatus,
+      datetime,
+      thumbnail,
+    });
   };
 
   const closePopup = () => {
@@ -48,8 +81,13 @@ const BookCard: React.FC<BookCardProps> = ({
   if (variant === "variant1") {
     return (
       <>
-        <div className="item-container" onClick={() => openPopup(title, detail)}>
-          <img src={mainImg} alt="" />
+        <div
+          className="item-container"
+          onClick={() =>
+            openPopup(title, detail, isbn, price, bstatus, datetime, thumbnail)
+          }
+        >
+          <img src={thumbnail} alt="" />
           <div className="w-4/5 mx-auto">
             <BookTitle>{title}</BookTitle>
             <BookDetail className="mb-9">{detail}</BookDetail>
@@ -60,6 +98,11 @@ const BookCard: React.FC<BookCardProps> = ({
           onClose={closePopup}
           title={selectedBook.title}
           detail={selectedBook.detail}
+          isbn={selectedBook.isbn}
+          price={selectedBook.price}
+          bstatus={selectedBook.bstatus}
+          datetime={selectedBook.datetime}
+          thumbnail={selectedBook.thumbnail}
         />
       </>
     );
@@ -67,10 +110,12 @@ const BookCard: React.FC<BookCardProps> = ({
     return (
       <>
         <div
-          onClick={() => openPopup(title, detail)}
+          onClick={() =>
+            openPopup(title, detail, isbn, price, bstatus, datetime, thumbnail)
+          }
           className="item-container2 w-96"
         >
-          <img className="w-4/5" src={mainImg} alt="" />
+          <img className="w-4/5" src={thumbnail} alt="" />
           <div className="w-4/5 mx-auto">
             <BookTitle>{title}</BookTitle>
             <BookDetail>{detail}</BookDetail>
@@ -81,6 +126,11 @@ const BookCard: React.FC<BookCardProps> = ({
           onClose={closePopup}
           title={selectedBook.title}
           detail={selectedBook.detail}
+          isbn={selectedBook.isbn}
+          price={selectedBook.price}
+          bstatus={selectedBook.bstatus}
+          datetime={selectedBook.datetime}
+          thumbnail={selectedBook.thumbnail}
         />
       </>
     );

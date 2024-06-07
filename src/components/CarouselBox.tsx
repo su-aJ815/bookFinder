@@ -42,8 +42,6 @@ function CarouselBox({ className, variant = "variant1" }: CarouselBoxProps) {
           params: {
             query: query,
             sort: "accuracy",
-            // page: 1,
-            // size: 10
           },
         });
 
@@ -62,6 +60,11 @@ function CarouselBox({ className, variant = "variant1" }: CarouselBoxProps) {
   const bookItems = searchedBooks.map((searchedBooks) => ({
     title: searchedBooks.title,
     detail: `${searchedBooks.authors.join(", ")}/${searchedBooks.publisher}`,
+    isbn: searchedBooks.isbn,
+    bstatus: searchedBooks.status,
+    price: searchedBooks.price,
+    datetime: searchedBooks.datetime,
+    thumbnail: searchedBooks.thumbnail,
     // 필요한 다른 속성들을 추가할 수 있습니다.
   }));
 
@@ -84,6 +87,11 @@ function CarouselBox({ className, variant = "variant1" }: CarouselBoxProps) {
             key={index}
             title={item.title}
             detail={item.detail}
+            isbn={item.isbn}
+            bstatus={item.bstatus}
+            price={item.price}
+            datetime={item.datetime}
+            thumbnail={item.thumbnail}
             variant={"variant1"}
           />
         ))}

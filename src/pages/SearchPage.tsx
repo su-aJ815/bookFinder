@@ -12,20 +12,27 @@ const Heading2 = styled.h1`
 `;
 
 function SearchPage() {
+  const [page, setPage] = useState(1);
   const location = useLocation();
+  const [totalResults, setTotalResults] = useState(0);
   const [results, setResults] = useState<any[]>([]);
   const query = new URLSearchParams(location.search).get("q");
 
-  const searchBooks = async (query: string) => {
+  const pageSize = 10; // 페이지당 결과 수
+
+  const searchBooks = async (query: string, page: number) => {
     try {
       const response = await instance.get("", {
         params: {
           query: query,
           sort: "accuracy",
+          size: pageSize, // 한 번에 가져올 결과의 수를 설정합니다.
+          page: page, // 원하는 페이지를 설정합니다.
         },
       });
 
       setResults(response.data.documents);
+      setTotalResults(response.data.meta.total_count); // 총 검색 결과 수 설정
     } catch (error) {
       console.error("책 검색 오류:", error);
     }
@@ -33,9 +40,34 @@ function SearchPage() {
 
   useEffect(() => {
     if (query) {
-      searchBooks(query);
+      searchBooks(query, page);
     }
-  }, [query]);
+  }, [query, page]);
+
+  const handleNextPage = () => {
+    if (page < totalPages) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
+  const handlePrevPage = () => {
+    if (page > 1) {
+      setPage((prevPage) => prevPage - 1);
+    }
+  };
+
+  const totalPages = Math.ceil(totalResults / pageSize); // 총 페이지 수 계산
+
+  const bookItems = results.map((results) => ({
+    title: results.title,
+    detail: `${results.authors.join(", ")}/${results.publisher}`,
+    isbn: results.isbn,
+    bstatus: results.status,
+    price: results.price,
+    datetime: results.datetime,
+    thumbnail: results.thumbnail,
+    // 필요한 다른 속성들을 추가할 수 있습니다.
+  }));
 
   return (
     <div className="pb-24">
@@ -47,16 +79,38 @@ function SearchPage() {
           paddingTop: "12px",
         }}
       >
-        <Heading2>총 {results.length}개의 검색 결과를 찾았어요</Heading2>
+        <Heading2>총 {totalResults}개의 검색 결과를 찾았어요</Heading2>
       </div>
       <div className="w-auto h-auto ml-64 mr-64 gap-y-16 flex flex-wrap justify-between">
-        {results.map((item, index) => (
+        {bookItems.map((item, index) => (
           <BookCard
             key={index}
             title={item.title}
-            detail={`${item.authors.join(", ")}/${item.publisher}`}
+            detail={item.detail}
+            isbn={item.isbn}
+            bstatus={item.bstatus}
+            price={item.price}
+            datetime={item.datetime}
+            thumbnail={item.thumbnail}
           />
         ))}
+      </div>
+      <div className="flex justify-center mt-8">
+        <button
+          onClick={handlePrevPage}
+          disabled={page === 1}
+          className="mr-4 px-4 py-2 bg-gray-500 text-white rounded disabled:opacity-50"
+        >
+          Previous
+        </button>
+        <p>{page}</p>
+        <button
+          onClick={handleNextPage}
+          disabled={page >= totalPages}
+          className="px-4 py-2 bg-blue-500 text-white rounded"
+        >
+          Next
+        </button>
       </div>
     </div>
   );

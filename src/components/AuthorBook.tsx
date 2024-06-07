@@ -37,6 +37,11 @@ function AuthorBook() {
   const bookItems = searchedAuthor.map((searchedAuthor) => ({
     title: searchedAuthor.title,
     detail: `${searchedAuthor.authors.join(", ")}/${searchedAuthor.publisher}`,
+    isbn: searchedAuthor.isbn,
+    bstatus: searchedAuthor.status,
+    price: searchedAuthor.price,
+    datetime: searchedAuthor.datetime,
+    thumbnail: searchedAuthor.thumbnail,
     // 필요한 다른 속성들을 추가할 수 있습니다.
   }));
 
@@ -45,7 +50,16 @@ function AuthorBook() {
       <Heading2>김초엽 작가님의 작품을 만나보세요</Heading2>
       <div className="w-auto h-auto mt-9 ml-64 mr-64 flex flex-row justify-between">
         {bookItems.map((item, index) => (
-          <BookCard key={index} title={item.title} detail={item.detail} />
+          <BookCard
+            key={index}
+            title={item.title}
+            detail={item.detail}
+            isbn={item.isbn}
+            bstatus={item.bstatus}
+            price={item.price}
+            datetime={item.datetime}
+            thumbnail={item.thumbnail}
+          />
         ))}
       </div>
     </div>
