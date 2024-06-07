@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import Carousel, { CarouselProps } from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import BookCard from "./BookCard";
@@ -28,12 +27,6 @@ const responsive: CarouselProps["responsive"] = {
     items: 1,
   },
 };
-
-const CarouselContainer = styled.div`
-  width: 100%;
-  height: auto;
-  margin-bottom: 100px;
-`;
 
 function CarouselBox({ className, variant = "variant1" }: CarouselBoxProps) {
   const [searchedBooks, setSearchedBooks] = useState<any[]>([]);
@@ -73,7 +66,7 @@ function CarouselBox({ className, variant = "variant1" }: CarouselBoxProps) {
   }));
 
   return (
-    <CarouselContainer>
+    <div className="w-full h-auto mb-24">
       <Carousel
         swipeable={true} // true로 변경하여 문제 해결
         draggable={true} // true로 변경하여 문제 해결
@@ -95,7 +88,7 @@ function CarouselBox({ className, variant = "variant1" }: CarouselBoxProps) {
           />
         ))}
       </Carousel>
-    </CarouselContainer>
+    </div>
   );
 }
 
