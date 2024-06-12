@@ -7,7 +7,7 @@ import instance from "../API/axiosConfig"; // 카카오 API 설정 파일을 임
 
 const Heading2 = styled.h1`
   color: ${theme.colors.mainWhite};
-  font-size: ${theme.typography.Heading2.fontSize};
+  font-size: 32px;
   font-weight: ${theme.typography.Heading2.fontWeight};
 `;
 
@@ -72,16 +72,16 @@ function SearchPage() {
   return (
     <div className="pb-24">
       <div
-        className="rounded-r-full w-2/5 pl-64 mt-20 mb-12"
+        className="rounded-r-full w-3/5 pl-52 mt-20 mb-12"
         style={{
           height: "84px",
           backgroundColor: "#11100B",
-          paddingTop: "12px",
+          paddingTop: "16px",
         }}
       >
         <Heading2>총 {totalResults}개의 검색 결과를 찾았어요</Heading2>
       </div>
-      <div className="w-auto h-auto ml-64 mr-64 gap-y-16 flex flex-wrap justify-between">
+      <div className="w-auto h-auto ml-52 mr-52 gap-y-16 flex flex-wrap justify-center gap-x-8 mb-16">
         {bookItems.map((item, index) => (
           <BookCard
             key={index}
@@ -95,7 +95,7 @@ function SearchPage() {
           />
         ))}
       </div>
-      <div className="flex justify-center mt-8">
+      <div className="flex justify-center">
         <button
           onClick={handlePrevPage}
           disabled={page === 1}
@@ -103,7 +103,7 @@ function SearchPage() {
         >
           Previous
         </button>
-        <p>{page}</p>
+        <p className="mr-4 mt-2">{page}/{totalPages}</p>
         <button
           onClick={handleNextPage}
           disabled={page >= totalPages}

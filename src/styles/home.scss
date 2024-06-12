@@ -1,25 +1,94 @@
-.textbox1 {
-    display: flex;
-    flex-direction: column;
-    width: 800px;
-    padding-top: 150px;
-}
+//Extra Small Devices
+@media (max-width: 576px) {
+    
+  }
 
-.background-img{
-    width: 50vw;
-    height: 70vh;
-    background-image: url('../assets/img/mainImg.jpg');
-}
+  //Small Devices
+@media (min-width: 576px) and (max-width: 768px) { 
 
-.logo{
-    width: 190px;
-    height: 40px;
-    background-image: url('../assets/img/logoBlack.png');
-}
+ }
 
-.feature-box{
-    width: 320px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-}
+ //Medium Devices
+ @media (min-width: 768px) and (max-width: 992px) {
+
+ }
+
+ //Large Devices
+ @media (min-width: 992px) and (max-width: 1200px) {
+    .textbox1 {
+        display: flex;
+        flex-direction: column;
+        width: 800px;
+        padding-top: 80px;
+    }
+
+    .searchbox{
+        margin-top: 80px;
+    }
+    
+    .background-img{
+        width: 50vw;
+        height: 75vh;
+        background-image: url('../assets/img/mainImg.jpg');
+    }
+    
+    .logo{
+        width: 150px;
+        height: 32px;
+        background-image: url('../assets/img/logoBlack.png');
+    }
+    
+    .feature-box{
+        width: 21%;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hide-sth{
+        display: none;
+    }
+
+    .stack-img{
+        width: 400px;
+        height: 320px;
+    }
+ }
+
+//Extra Large Devices
+@media (min-width: 1200px) {
+    .textbox1 {
+        display: flex;
+        flex-direction: column;
+        width: 800px;
+        padding-top: 112px;
+    }
+
+    .searchbox{
+        margin-top: 84px;
+    }
+    
+    .background-img{
+        width: 50vw;
+        height: 75vh;
+        background-image: url('../assets/img/mainImg.jpg');
+    }
+    
+    .logo{
+        width: 190px;
+        height: 40px;
+        background-image: url('../assets/img/logoBlack.png');
+    }
+    
+    .feature-box{
+        width: 22%;
+        height: 176px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stack-img{
+        width: 550px;
+        height: 450px;
+    }
+  }

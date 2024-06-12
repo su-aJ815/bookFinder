@@ -48,7 +48,7 @@ function AuthorBook() {
   return (
     <div>
       <Heading2>김초엽 작가님의 작품을 만나보세요</Heading2>
-      <div className="w-auto h-auto mt-9 ml-64 mr-64 flex flex-row justify-between">
+      <div className="w-auto h-auto mt-9 ml-48 mr-48 flex flex-row justify-center gap-8">
         {bookItems.map((item, index) => (
           <BookCard
             key={index}

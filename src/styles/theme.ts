@@ -1,3 +1,4 @@
+// theme.js
 export const theme = {
   colors: {
     mainColor: "#11100B",
@@ -68,11 +69,6 @@ export const theme = {
     },
 
     //app
-    appTitle: {
-      color: "#fafafa",
-      fontSize: "26px",
-      fontWeight: 700,
-    },
     appTitle2: {
       color: "#191F28",
       fontSize: "20px",
@@ -113,5 +109,11 @@ export const theme = {
       fontSize: "12px",
       fontWeight: 400,
     },
+  },
+  breakpoints: {
+    mobile: '576px',
+    tablet: '768px',
+    desktop: '992px',
+    largeDesktop: '1200px',
   },
 };

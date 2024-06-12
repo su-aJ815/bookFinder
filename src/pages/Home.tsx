@@ -1,5 +1,6 @@
 import React from "react";
 import { theme } from "../styles/theme";
+import { ThemeProvider } from 'styled-components';
 import styled from "styled-components";
 import backgroundBox from "../assets/img/backgroundBox.png";
 import bookStack from "../assets/img/bookStack.png";
@@ -13,6 +14,9 @@ import { faPenFancy } from "@fortawesome/free-solid-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
 import { faChartSimple } from "@fortawesome/free-solid-svg-icons";
 import '../styles/home.scss';
+import Heading1 from '../styles/Typography/Heading1';
+import Heading3 from "../styles/Typography/Heading3";
+import Paragraph5 from "../styles/Typography/Paragraph5";
 
 interface HoomProps extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -20,23 +24,11 @@ interface HoomProps extends React.HTMLAttributes<HTMLInputElement> {
 }
 
 //Text
-const Heading1 = styled.h1`
-  color: ${theme.typography.Heading1.color};
-  font-size: ${theme.typography.Heading1.fontSize};
-  font-weight: ${theme.typography.Heading1.fontWeight};
-`;
 
 const Heading2 = styled.h1`
   color: ${theme.typography.Heading2.color};
   font-size: ${theme.typography.Heading2.fontSize};
   font-weight: ${theme.typography.Heading2.fontWeight};
-`;
-
-const Heading3 = styled.h1`
-  color: ${theme.typography.Heading3.color};
-  font-size: ${theme.typography.Heading3.fontSize};
-  font-weight: ${theme.typography.Heading3.fontWeight};
-  margin-bottom: 8px;
 `;
 
 const Heading4 = styled.h1`
@@ -53,21 +45,15 @@ const Paragraph1 = styled.p`
 
 const Paragraph2 = styled.h1`
   color: ${theme.typography.Paragraph2.color};
-  font-size: ${theme.typography.Paragraph2.fontSize};
+  font-size: 12px;
   font-weight: ${theme.typography.Paragraph2.fontWeight};
-`;
-
-const Paragraph5 = styled.h1`
-  color: ${theme.typography.Paragraph5.color};
-  font-size: ${theme.typography.Paragraph5.fontSize};
-  font-weight: ${theme.typography.Paragraph5.fontWeight};
 `;
 
 function Home({ className, variant = "variant1", ...props }: HoomProps) {
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <div className="w-full h-auto flex flex-row">
-        <div className="textbox1 ml-64">
+        <div className="textbox1 ml-52">
           <div className="logo mb-3 bg-no-repeat bg-cover	bg-center" />
           <Heading1 className="mb-4">원하는 책을 검색해보세요!</Heading1>
           <div className="w-7/12 h-auto">
@@ -79,21 +65,21 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
               상세한 책 정보와 리뷰를 통해 신중한 선택을 도울 수 있습니다. 언제
               어디서나 원하는 책을 손쉽게 찾아보세요!
             </Paragraph1>
-            <SearchBar className="mt-32" />
+            <SearchBar className="searchbox" />
           </div>
         </div>
         <div className="background-img bg-no-repeat bg-cover bg-center ml-auto" />
       </div>
-      <div className="w-full px-64 h-48 flex flex-row justify-between border-y border-zinc-900">
+      <div className="w-full px-52 flex flex-row justify-between border-y border-zinc-900">
         <div className="feature-box">
           <FontAwesomeIcon
             className="mr-auto mb-3 mt-8"
             icon={faGlobe}
             size="xl"
           />
-          <Heading3>다양한 검색 옵션을 활용해보세요</Heading3>
-          <Paragraph2>
-            책을 찾을 때 다양한 기준으로 검색할 수 있습니다. 제목, 저자, 출판사,
+          <Heading3 className="mb-1">다양한 옵션을 활용해보세요</Heading3>
+          <Paragraph2 className="hide-sth">
+            제목, 저자, 출판사,
             출간 연도 등 다양한 옵션을 만나보세요.
           </Paragraph2>
         </div>
@@ -103,9 +89,9 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
             icon={faChartSimple}
             size="xl"
           />
-          <Heading3>상세한 책 정보를 만나보세요</Heading3>
-          <Paragraph2>
-            각 책에는 상세한 정보와 독자들의 리뷰가 제공됩니다. 책의 내용과
+          <Heading3 className="mb-1">상세한 책 정보를 만나보세요</Heading3>
+          <Paragraph2 className="hide-sth">
+            상세한 정보로 책의 내용과
             품질을 더욱 신중하게 평가해보세요.
           </Paragraph2>
         </div>
@@ -115,9 +101,9 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
             icon={faBookmark}
             size="xl"
           />
-          <Heading3>마음에 드는 책을 저장하세요</Heading3>
-          <Paragraph2>
-            "읽고 싶은 책" 목록에 책을 추가해보세요. 나만의 책 리스트를 만들어
+          <Heading3 className="mb-1">마음에 드는 책을 저장하세요</Heading3>
+          <Paragraph2 className="hide-sth">
+            나만의 책 리스트를 만들어
             효율적이고 쉽게 접근해보세요.
           </Paragraph2>
         </div>
@@ -127,27 +113,26 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
             icon={faPenFancy}
             size="xl"
           />
-          <Heading3>인기 작가의 저서를 한 번에 만나보세요</Heading3>
-          <Paragraph2>
-            좋아하는 작가의 책을 모아서 열람해볼 수 있습니다. 선별된 작가의
+          <Heading3 className="mb-1">인기 작가의 책을 만나보세요</Heading3>
+          <Paragraph2 className="hide-sth">
+            선별된 작가의
             작품을 메인 페이지에서 만나보세요.
           </Paragraph2>
         </div>
       </div>
       <div className="w-full h-auto flex flex-row mt-24 mb-9">
-        <div className="w-10 h-20 bg-zinc-900 ml-64 mr-5 rounded-l-full" />
+        <div className="w-10 h-20 bg-zinc-900 ml-52 mr-5 rounded-l-full" />
         <div>
           <Heading4>키워드별 인기 저서</Heading4>
           <Heading2>'자바스크립트' 관련 책을 찾고계신가요?</Heading2>
         </div>
       </div>
-      <div className="w-auto h-auto flex flex-row ml-64 mr-64">
+      <div className="w-auto h-auto flex flex-row ml-52 mr-52">
         <CarouselBox />
       </div>
       <div style={{ backgroundColor: "#f3eee1" }} className="w-full h-auto pt-24 pb-24 flex flex-row">
         <img
-          style={{ width: "550px", height: "450px" }}
-          className="ml-72"
+          className="stack-img ml-52"
           src={bookStack}
           alt=""
         />
@@ -201,7 +186,7 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
           }}
         />
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 

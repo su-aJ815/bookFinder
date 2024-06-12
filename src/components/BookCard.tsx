@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { theme } from "../styles/theme";
 import Popup from "./Popup";
 import "../styles/bookcard.scss";
+import { ThemeProvider } from 'styled-components';
+import BookTitle from "../styles/Typography/BookTitle";
 
 interface BookCardProps {
   title: string;
@@ -17,17 +19,11 @@ interface BookCardProps {
 }
 
 //Text
-const BookTitle = styled.h1`
-  color: ${theme.typography.BookTitle.color};
-  font-size: ${theme.typography.BookTitle.fontSize};
-  font-weight: ${theme.typography.BookTitle.fontWeight};
-  margin: 4px auto 8px auto;
-`;
-
 const BookDetail = styled.h1`
   color: ${theme.typography.BookDetail.color};
   font-size: ${theme.typography.BookDetail.fontSize};
   font-weight: ${theme.typography.BookDetail.fontWeight};
+  margin-bottom: 12px;
 `;
 
 //publishing component
@@ -80,7 +76,7 @@ const BookCard: React.FC<BookCardProps> = ({
 
   if (variant === "variant1") {
     return (
-      <>
+      <ThemeProvider theme={theme}>
         <div
           className="item-container"
           onClick={() =>
@@ -89,35 +85,7 @@ const BookCard: React.FC<BookCardProps> = ({
         >
           <img src={thumbnail} alt="" />
           <div className="w-4/5 mx-auto">
-            <BookTitle>{title}</BookTitle>
-            <BookDetail className="mb-9">{detail}</BookDetail>
-          </div>
-        </div>
-        <Popup
-          isOpen={isOpen}
-          onClose={closePopup}
-          title={selectedBook.title}
-          detail={selectedBook.detail}
-          isbn={selectedBook.isbn}
-          price={selectedBook.price}
-          bstatus={selectedBook.bstatus}
-          datetime={selectedBook.datetime}
-          thumbnail={selectedBook.thumbnail}
-        />
-      </>
-    );
-  } else {
-    return (
-      <>
-        <div
-          onClick={() =>
-            openPopup(title, detail, isbn, price, bstatus, datetime, thumbnail)
-          }
-          className="item-container2 w-96"
-        >
-          <img className="w-4/5" src={thumbnail} alt="" />
-          <div className="w-4/5 mx-auto">
-            <BookTitle>{title}</BookTitle>
+            <BookTitle className="title" style={{ margin: "4px auto 4px auto" }}>{title}</BookTitle>
             <BookDetail>{detail}</BookDetail>
           </div>
         </div>
@@ -132,7 +100,35 @@ const BookCard: React.FC<BookCardProps> = ({
           datetime={selectedBook.datetime}
           thumbnail={selectedBook.thumbnail}
         />
-      </>
+      </ThemeProvider>
+    );
+  } else {
+    return (
+      <ThemeProvider theme={theme}>
+        <div
+          onClick={() =>
+            openPopup(title, detail, isbn, price, bstatus, datetime, thumbnail)
+          }
+          className="item-container2 w-1/5 pl-4 pr-4"
+        >
+          <img src={thumbnail} alt="" />
+          <div className="mx-auto">
+            <BookTitle style={{ margin: "4px auto 4px auto" }} className="title">{title}</BookTitle>
+            <BookDetail>{detail}</BookDetail>
+          </div>
+        </div>
+        <Popup
+          isOpen={isOpen}
+          onClose={closePopup}
+          title={selectedBook.title}
+          detail={selectedBook.detail}
+          isbn={selectedBook.isbn}
+          price={selectedBook.price}
+          bstatus={selectedBook.bstatus}
+          datetime={selectedBook.datetime}
+          thumbnail={selectedBook.thumbnail}
+        />
+      </ThemeProvider>
     );
   }
 };
