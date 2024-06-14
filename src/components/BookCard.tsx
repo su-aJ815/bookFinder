@@ -5,6 +5,7 @@ import Popup from "./Popup";
 import "../styles/bookcard.scss";
 import { ThemeProvider } from 'styled-components';
 import BookTitle from "../styles/Typography/BookTitle";
+import MainImg from "../assets/img/mainImg.jpg"
 
 interface BookCardProps {
   title: string;
@@ -83,7 +84,7 @@ const BookCard: React.FC<BookCardProps> = ({
             openPopup(title, detail, isbn, price, bstatus, datetime, thumbnail)
           }
         >
-          <img src={thumbnail} alt="" />
+          <img src={thumbnail ? thumbnail : MainImg} alt="" />
           <div className="w-4/5 mx-auto">
             <BookTitle className="title" style={{ margin: "4px auto 4px auto" }}>{title}</BookTitle>
             <BookDetail>{detail}</BookDetail>
@@ -109,9 +110,9 @@ const BookCard: React.FC<BookCardProps> = ({
           onClick={() =>
             openPopup(title, detail, isbn, price, bstatus, datetime, thumbnail)
           }
-          className="item-container2 w-1/5 pl-4 pr-4"
+          className="item-container2 pl-4 pr-4"
         >
-          <img src={thumbnail} alt="" />
+          <img src={thumbnail ? thumbnail : MainImg} alt="" />
           <div className="mx-auto">
             <BookTitle style={{ margin: "4px auto 4px auto" }} className="title">{title}</BookTitle>
             <BookDetail>{detail}</BookDetail>

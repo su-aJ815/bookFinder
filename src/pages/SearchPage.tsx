@@ -18,7 +18,7 @@ function SearchPage() {
   const [results, setResults] = useState<any[]>([]);
   const query = new URLSearchParams(location.search).get("q");
 
-  const pageSize = 10; // 페이지당 결과 수
+  const pageSize = 12; // 페이지당 결과 수
 
   const searchBooks = async (query: string, page: number) => {
     try {

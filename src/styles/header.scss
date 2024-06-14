@@ -7,6 +7,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+
+    @media (max-width: 992px) {
+        background-color: #121212;
+    }
 }
 
 .menu-tab {
@@ -18,4 +22,9 @@
     flex-direction: row;
     gap: 20px;
     text-align: center;
+    color: #191F28;
+
+    @media (max-width: 992px) {
+        color: #fafafa;
+    }
 }

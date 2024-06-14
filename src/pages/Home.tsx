@@ -17,6 +17,7 @@ import '../styles/home.scss';
 import Heading1 from '../styles/Typography/Heading1';
 import Heading3 from "../styles/Typography/Heading3";
 import Paragraph5 from "../styles/Typography/Paragraph5";
+import Paragraph1 from "../styles/Typography/Paragraph1";
 
 interface HoomProps extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
@@ -24,7 +25,6 @@ interface HoomProps extends React.HTMLAttributes<HTMLInputElement> {
 }
 
 //Text
-
 const Heading2 = styled.h1`
   color: ${theme.typography.Heading2.color};
   font-size: ${theme.typography.Heading2.fontSize};
@@ -37,12 +37,6 @@ const Heading4 = styled.h1`
   font-weight: ${theme.typography.Heading4.fontWeight};
 `;
 
-const Paragraph1 = styled.p`
-  color: ${theme.typography.Paragraph1.color};
-  font-size: ${theme.typography.Paragraph1.fontSize};
-  font-weight: ${theme.typography.Paragraph1.fontWeight};
-`;
-
 const Paragraph2 = styled.h1`
   color: ${theme.typography.Paragraph2.color};
   font-size: 12px;
@@ -53,8 +47,8 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
   return (
     <ThemeProvider theme={theme}>
       <div className="w-full h-auto flex flex-row">
-        <div className="textbox1 ml-52">
-          <div className="logo mb-3 bg-no-repeat bg-cover	bg-center" />
+        <div className="textbox1 margin-left-box">
+          <div className="logo bg-no-repeat bg-cover bg-center" />
           <Heading1 className="mb-4">원하는 책을 검색해보세요!</Heading1>
           <div className="w-7/12 h-auto">
             <Paragraph1>
@@ -70,7 +64,7 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
         </div>
         <div className="background-img bg-no-repeat bg-cover bg-center ml-auto" />
       </div>
-      <div className="w-full px-52 flex flex-row justify-between border-y border-zinc-900">
+      <div className="feature-box-container w-full flex flex-row justify-between border-y border-zinc-900">
         <div className="feature-box">
           <FontAwesomeIcon
             className="mr-auto mb-3 mt-8"
@@ -121,18 +115,18 @@ function Home({ className, variant = "variant1", ...props }: HoomProps) {
         </div>
       </div>
       <div className="w-full h-auto flex flex-row mt-24 mb-9">
-        <div className="w-10 h-20 bg-zinc-900 ml-52 mr-5 rounded-l-full" />
+        <div className="margin-left-box w-10 h-20 bg-zinc-900 mr-5 rounded-l-full" />
         <div>
           <Heading4>키워드별 인기 저서</Heading4>
           <Heading2>'자바스크립트' 관련 책을 찾고계신가요?</Heading2>
         </div>
       </div>
-      <div className="w-auto h-auto flex flex-row ml-52 mr-52">
+      <div className="w-auto h-auto flex flex-row margin-x-box">
         <CarouselBox />
       </div>
       <div style={{ backgroundColor: "#f3eee1" }} className="w-full h-auto pt-24 pb-24 flex flex-row">
         <img
-          className="stack-img ml-52"
+          className="stack-img margin-left-box"
           src={bookStack}
           alt=""
         />

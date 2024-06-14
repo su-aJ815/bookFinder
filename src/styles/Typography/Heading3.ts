@@ -14,7 +14,7 @@ const Heading3 = styled.h1`
 
   @media (min-width: ${props => props.theme.breakpoints.mobile}) and (max-width: ${props => props.theme.breakpoints.tablet}) {
     // 태블릿 크기  
-    font-size: 16px;
+    font-size: 15px;
 
   }
 

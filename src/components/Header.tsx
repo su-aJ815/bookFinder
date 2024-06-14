@@ -9,7 +9,6 @@ function Header() {
       <div className="menu-tab">
         <Link
           className="mt-auto mb-auto no-underline"
-          style={{ color: theme.colors.mainColor }}
           to="/"
         >
           Home
