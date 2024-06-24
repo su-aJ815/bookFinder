@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-const Paragraph1 = styled.p`
-  color: ${props => props.theme.typography.Paragraph1.color};
-  font-size: ${props => props.theme.typography.Paragraph1.fontSize};
-  font-weight: ${props => props.theme.typography.Paragraph1.fontWeight};
+const Heading4 = styled.h1`
+  color: ${props => props.theme.typography.Heading4.color};
+  font-size: ${props => props.theme.typography.Heading4.fontSize};
+  font-weight: ${props => props.theme.typography.Heading4.fontWeight};
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}) {
     /* 모바일 크기 */
@@ -11,23 +11,26 @@ const Paragraph1 = styled.p`
   }
 
   @media (min-width: ${props => props.theme.breakpoints.mobile}) and (max-width: ${props => props.theme.breakpoints.tablet}) {
-    font-size: 15px;
+    /* 작은 디바이스 크기 */
+    font-size: 14px;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) and (max-width: ${props => props.theme.breakpoints.desktop}) {
     /* 태블릿 크기 */
-    font-size: 15px;
+    font-size: 16px;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.desktop}) {
     /* 작은 데스크탑 크기 */
-    font-size: 15px;
+    font-size: 16px;
   }
 
   @media (min-width: ${props => props.theme.breakpoints.largeDesktop}) {
     /* 큰 데스크탑 크기 */
-    font-size: ${props => props.theme.typography.Paragraph1.fontSize};
+    color: ${props => props.theme.typography.Heading4.color};
+    font-size: ${props => props.theme.typography.Heading4.fontSize};
+    font-weight: ${props => props.theme.typography.Heading4.fontWeight};
   }
 `;
 
-export default Paragraph1;
+export default Heading4;

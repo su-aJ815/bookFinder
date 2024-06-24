@@ -18,55 +18,6 @@
         margin-left: 88px;
         margin-right: 88px;
     }
-
-    .textbox1 {
-        height: 60vh;
-        display: flex;
-        flex-direction: column;
-        width: 600px;
-        padding-top: 52px;
-        margin-left: 88px;
-    }
-
-    .searchbox{
-        margin-top: 64px;
-    }
-    
-    .background-img{
-        position: absolute;
-        z-index: -1;
-        width: 100vw;
-        height: 60vh;
-        background-image: url('../assets/img/mainImg.jpg');
-    }
-    
-    .logo{
-        width: 150px;
-        height: 32px;
-        background-image: url('../assets/img/logoWhite.png');
-        margin-bottom: 4px;
-    }
-
-    .feature-box-container{
-        padding-right: 88px;
-        padding-left: 88px;
-    }
-    
-    .feature-box{
-        width: 21%;
-        height: 150px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .hide-sth{
-        display: none;
-    }
-
-    .stack-img{
-        width: 320px;
-        height: 250px;
-    }
  }
 
  //Large Devices
@@ -79,52 +30,6 @@
         margin-left: 208px;
         margin-right: 208px;
     }
-
-    .textbox1 {
-        display: flex;
-        flex-direction: column;
-        width: 800px;
-        padding-top: 80px;
-        margin-left: 208px;
-    }
-
-    .searchbox{
-        margin-top: 80px;
-    }
-    
-    .background-img{
-        width: 50vw;
-        height: 75vh;
-        background-image: url('../assets/img/mainImg.jpg');
-    }
-    
-    .logo{
-        width: 150px;
-        height: 32px;
-        background-image: url('../assets/img/logoBlack.png');
-        margin-bottom: 12px;
-    }
-    
-    .feature-box-container{
-        padding-right: 208px;
-        padding-left: 208px;
-    }
-
-    .feature-box{
-        width: 21%;
-        height: 150px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .hide-sth{
-        display: none;
-    }
-
-    .stack-img{
-        width: 400px;
-        height: 320px;
-    }
  }
 
 //Extra Large Devices
@@ -136,47 +41,5 @@
     .margin-x-box{
         margin-left: 208px;
         margin-right: 208px;
-    }
-
-    .textbox1 {
-        display: flex;
-        flex-direction: column;
-        width: 800px;
-        padding-top: 112px;
-        margin-left: 208px;
-    }
-
-    .searchbox{
-        margin-top: 84px;
-    }
-    
-    .background-img{
-        width: 50vw;
-        height: 75vh;
-        background-image: url('../assets/img/mainImg.jpg');
-    }
-    
-    .logo{
-        width: 190px;
-        height: 40px;
-        background-image: url('../assets/img/logoBlack.png');
-        margin-bottom: 12px;
-    }
-
-    .feature-box-container{
-        padding-right: 208px;
-        padding-left: 208px;
-    }
-    
-    .feature-box{
-        width: 22%;
-        height: 176px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .stack-img{
-        width: 550px;
-        height: 450px;
     }
   }

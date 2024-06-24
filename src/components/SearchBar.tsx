@@ -36,7 +36,7 @@ const IconPadding = styled.div`
 
 
 
-function SearchBar({ className, ...props }: SearchboxProps) {
+function SearchBar({ className }: SearchboxProps) {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 

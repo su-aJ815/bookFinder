@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import instance from "../API/axiosConfig";
 import { theme } from "../styles/theme";
-import styled from "styled-components";
+import { ThemeProvider } from "styled-components";
 import BookCard from "./BookCard";
-
-const Heading2 = styled.h1`
-  color: ${theme.typography.Heading2.color};
-  font-size: ${theme.typography.Heading2.fontSize};
-  font-weight: ${theme.typography.Heading2.fontWeight};
-`;
+import Heading2 from "../styles/Typography/Heading2";
 
 function AuthorBook() {
   const [searchedAuthor, setSearchedAuthor] = useState<any[]>([]);
@@ -46,7 +41,7 @@ function AuthorBook() {
   }));
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Heading2>김초엽 작가님의 작품을 만나보세요</Heading2>
       <div className="w-auto h-auto mt-9 ml-48 mr-48 flex flex-wrap flex-row justify-center gap-8">
         {bookItems.map((item, index) => (
@@ -62,7 +57,7 @@ function AuthorBook() {
           />
         ))}
       </div>
-    </div>
+    </ThemeProvider>
   );
 }
 
