@@ -56,6 +56,6 @@ Bibliophile는 ‘애서가’라는 의미로, 책을 사랑하는 사람들의
 
 ## 📎Initialization
 ```
-$ git clone https://github.com/SiliconValleyInternship-2A22/Hackphaistus.git <br/>
-$ cd Hackphaistus
+$ git clone https://github.com/su-aJ815/bookFinder.git <br/>
+$ cd bookFinder
 ```
