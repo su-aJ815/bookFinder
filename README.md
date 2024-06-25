@@ -48,7 +48,7 @@ Bibliophile는 ‘애서가’라는 의미로, 책을 사랑하는 사람들의
 
 
 
-## 📎Used Model
+## 📎Used Api
 [Daum 책 검색하기](https://developers.kakao.com/docs/latest/ko/daum-search/dev-guide#search-book) from Kakao Api
 
 
