@@ -8,8 +8,7 @@ Bibliophile는 ‘애서가’라는 의미로, 책을 사랑하는 사람들의
 
 <img width="1664" alt="스크린샷 2024-06-25 오후 4 02 09" src="https://github.com/su-aJ815/bookFinder/assets/85851785/c38ff084-1793-4de3-b730-074070ffaa9d">
 
-![Main](https://github.com/su-aJ815/bookFinder/assets/85851785/342c29f2-e31c-47bd-bcab-743799ba9143)
-
+![main](https://github.com/su-aJ815/bookFinder/assets/85851785/a6997155-5b0b-4ac0-9e93-2d5e09ec5e68)
 
 
 
@@ -18,9 +17,9 @@ Bibliophile는 ‘애서가’라는 의미로, 책을 사랑하는 사람들의
 화면에 유연하게 반응하는 반응형 디자인으로, 모바일/태블릿/웹 등 다양한 디바이스에서 활용 가능합니다.
 
 
-![Responsive](https://github.com/su-aJ815/bookFinder/assets/85851785/0efef1e3-9150-46c6-b81f-c991e382cb4b)
+![responsive](https://github.com/su-aJ815/bookFinder/assets/85851785/003a6ee3-8808-4f93-a940-f8ba368e68c3)
 
-![mobile](https://github.com/su-aJ815/bookFinder/assets/85851785/b83a71fe-8a97-442b-9061-644d3c8261fe)
+![mobile](https://github.com/su-aJ815/bookFinder/assets/85851785/3bcd3203-5c29-489b-a742-bcaf18a4f2e5)
 
 
 
@@ -42,7 +41,7 @@ Bibliophile는 ‘애서가’라는 의미로, 책을 사랑하는 사람들의
   <img src="https://img.shields.io/badge/Font Awesome-538DD7?style=for-the-badge&logo=fontawesome&logoColor=white">
   <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white">
   <img src="https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white">
-  <img src="https://img.shields.io/badge/styled-component-DB7093?style=for-the-badge&logo=styledcomponent&logoColor=white">
+  <img src="https://img.shields.io/badge/styled component-DB7093?style=for-the-badge&logo=styledcomponent&logoColor=white">
   <img src="https://img.shields.io/badge/VScode-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white">
 </div>
 
