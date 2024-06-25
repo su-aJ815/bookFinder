@@ -17,7 +17,7 @@ Bibliophile는 ‘애서가’라는 의미로, 책을 사랑하는 사람들의
 화면에 유연하게 반응하는 반응형 디자인으로, 모바일/태블릿/웹 등 다양한 디바이스에서 활용 가능합니다.
 
 
-![responsive](https://github.com/su-aJ815/bookFinder/assets/85851785/003a6ee3-8808-4f93-a940-f8ba368e68c3)
+![Responsive](https://github.com/su-aJ815/bookFinder/assets/85851785/d49dffa9-f533-4e9c-ae86-113cbb529891)
 
 ![mobile](https://github.com/su-aJ815/bookFinder/assets/85851785/3bcd3203-5c29-489b-a742-bcaf18a4f2e5)
 
