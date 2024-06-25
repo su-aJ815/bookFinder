@@ -4,6 +4,7 @@ import { theme } from "../styles/theme";
 import { ThemeProvider } from "styled-components";
 import BookCard from "./BookCard";
 import Heading2 from "../styles/Typography/Heading2";
+import '../styles/home.scss';
 
 function AuthorBook() {
   const [searchedAuthor, setSearchedAuthor] = useState<any[]>([]);
@@ -42,8 +43,8 @@ function AuthorBook() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Heading2>김초엽 작가님의 작품을 만나보세요</Heading2>
-      <div className="w-auto h-auto mt-9 ml-48 mr-48 flex flex-wrap flex-row justify-center gap-8">
+      <Heading2 className="author-box">김초엽 작가님의 작품을 만나보세요</Heading2>
+      <div className="w-auto h-auto mt-9 flex flex-wrap flex-row justify-center gap-8">
         {bookItems.map((item, index) => (
           <BookCard
             key={index}

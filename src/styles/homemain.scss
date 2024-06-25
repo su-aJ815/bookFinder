@@ -1,17 +1,90 @@
 //Extra Small Devices
 @media (max-width: 576px) {
-    
+    .margin-box{
+        margin-left: 28px;
+    }
+
+    .paragragh-box{
+        width: 83%;
+        margin-left: 28px;
+    }
+
+    .textbox {
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      width: 600px;
+      padding-top: 64px;
+  }
+
+  .searchbox{
+      margin-top: 72px;
+  }
+  
+  .background-img{
+      position: absolute;
+      z-index: -1;
+      width: 100vw;
+      height: 60vh;
+      background-image: url('../assets/img/mainImg.jpg');
+  }
+  
+  .logo{
+      width: 150px;
+      height: 32px;
+      background-image: url('../assets/img/logoWhite.png');
+      margin-bottom: 4px;
+  } 
 }
 
 //Small Devices
 @media (min-width: 576px) and (max-width: 768px) { 
+    .margin-box{
+        margin-left: 28px;
+    }
 
+    .paragragh-box{
+        width: 83%;
+        margin-left: 28px;
+    }
+
+    .textbox {
+        height: 60vh;
+        display: flex;
+        flex-direction: column;
+        width: 600px;
+        padding-top: 64px;
+  }
+
+  .searchbox{
+    margin-top: 72px;
+  }
+  
+  .background-img{
+      position: absolute;
+      z-index: -1;
+      width: 100vw;
+      height: 60vh;
+      background-image: url('../assets/img/mainImg.jpg');
+  }
+  
+  .logo{
+      width: 150px;
+      height: 32px;
+      background-image: url('../assets/img/logoWhite.png');
+      margin-bottom: 4px;
+  }
 }
 
 //Medium Devices
 @media (min-width: 768px) and (max-width: 992px) {
-    .margin-left-box{
-        margin-left: 88px;
+    .margin-box{
+        margin-left: 28px;
+    }
+
+    .paragragh-box{
+        width: 83%;
+        margin-left: 28px;
     }
 
     .textbox {
@@ -45,8 +118,8 @@
 
 //Large Devices
 @media (min-width: 992px) and (max-width: 1200px) {
-    .margin-left-box{
-        margin-left: 208px;
+    .paragragh-box{
+        width: 58%;
     }
 
   .textbox {
@@ -77,10 +150,10 @@
 
 //Extra Large Devices
 @media (min-width: 1200px) {
-    .margin-left-box{
-        margin-left: 208px;
+    .paragragh-box{
+        width: 58%;
     }
-    
+
   .textbox {
       display: flex;
       flex-direction: column;

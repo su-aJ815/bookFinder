@@ -12,10 +12,10 @@ function HomeMain() {
     return (
         <ThemeProvider theme={theme}>
             <div className="w-full h-auto flex flex-row">
-                <div className="textbox margin-left-box">
-                    <div className="logo bg-no-repeat bg-cover bg-center" />
-                    <Heading1 className="mb-4">원하는 책을 검색해보세요!</Heading1>
-                    <div className="w-7/12 h-auto">
+                <div className="textbox">
+                    <div className="logo bg-no-repeat bg-cover bg-center margin-box" />
+                    <Heading1 className="mb-4 margin-box">원하는 책을 검색해보세요!</Heading1>
+                    <div className="paragragh-box h-auto margin-box">
                         <MainParagraph>
                             Bibliophile's Choice는 다양한 기준으로 책을 쉽게 찾을 수 있도록
                             도와줍니다. 제목, 저자, 출판사, ISBN 등으로 검색할 수 있으며, 최신

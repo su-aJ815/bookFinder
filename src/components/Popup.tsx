@@ -45,7 +45,7 @@ function Popup({
     <ThemeProvider theme={theme}>
       <div className="overlay" onClick={onClose}>
         <div
-          className="popup-box w-1/2 h-3/5 flex flex-row"
+          className="popup-box popup-size flex flex-row"
           onClick={(e) => e.stopPropagation()}
         >
           <button className="close-btn" onClick={onClose}>
@@ -56,7 +56,7 @@ function Popup({
             <Paragraph4 className="ml-4">{isbn}</Paragraph4>
             <Heading2 className="ml-4 mr-4">{title}</Heading2>
             <BookDetail className="ml-4 mt-2">{detail}</BookDetail>
-            <div className="w-full h-20 flex flex-row border-y border-slate-400	mt-16">
+            <div className="w-full h-20 flex flex-row border-y border-slate-400	detail-box">
               <Paragraph1 className="ml-4 mr-8 mt-auto mb-auto">출판 연도</Paragraph1>
               <Paragraph2 className="mt-auto mb-auto">{getPublicationYear(datetime)}</Paragraph2>
             </div>

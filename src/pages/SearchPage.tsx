@@ -3,8 +3,12 @@ import { theme } from "../styles/theme";
 import BookCard from "../components/BookCard";
 import { useLocation } from "react-router-dom";
 import instance from "../API/axiosConfig"; // 카카오 API 설정 파일을 임포트합니다.
-import Heading2 from "../styles/Typography/Heading2";
+import SearchHeading from "../styles/Typography/SearchHeading";
 import { ThemeProvider } from "styled-components";
+import '../styles/searchpage.scss';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 function SearchPage() {
   const [page, setPage] = useState(1);
@@ -68,16 +72,11 @@ function SearchPage() {
     <ThemeProvider theme={theme}>
       <div className="pb-24">
         <div
-          className="rounded-r-full w-3/5 pl-52 mt-20 mb-12"
-          style={{
-            height: "84px",
-            backgroundColor: "#11100B",
-            paddingTop: "16px",
-          }}
+          className="rounded-r-full title-box"
         >
-          <Heading2>총 {totalResults}개의 검색 결과를 찾았어요</Heading2>
+          <SearchHeading>총 {totalResults}개의 검색 결과를 찾았어요</SearchHeading>
         </div>
-        <div className="w-auto h-auto ml-52 mr-52 gap-y-16 flex flex-wrap justify-center gap-x-8 mb-16">
+        <div className="card-con w-auto h-auto flex flex-wrap justify-center mb-16">
           {bookItems.map((item, index) => (
             <BookCard
               key={index}
@@ -95,17 +94,25 @@ function SearchPage() {
           <button
             onClick={handlePrevPage}
             disabled={page === 1}
-            className="mr-4 px-4 py-2 bg-gray-500 text-white rounded disabled:opacity-50"
+            className="px-4 pb-2 mr-4 text-white rounded disabled:opacity-50"
+            style={{ backgroundColor: '#11100B' }}
           >
-            Previous
+            <FontAwesomeIcon
+              className="icon"
+              icon={faArrowLeft}
+            />
           </button>
-          <p className="mr-4 mt-2">{page}/{totalPages}</p>
+          <p className="mr-4 mt-5 text-base">{page}/{totalPages}</p>
           <button
             onClick={handleNextPage}
             disabled={page >= totalPages}
-            className="px-4 py-2 bg-blue-500 text-white rounded"
+            className="px-4 pb-2 text-white rounded"
+            style={{ backgroundColor: '#11100B' }}
           >
-            Next
+            <FontAwesomeIcon
+              className="icon"
+              icon={faArrowRight}
+            />
           </button>
         </div>
       </div>

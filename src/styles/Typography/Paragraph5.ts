@@ -7,12 +7,12 @@ const Paragraph5 = styled.h1`
 
   @media (max-width: ${props => props.theme.breakpoints.mobile}) {
     // 모바일 크기  
-    font-size: "12px",
+    font-size: "11px",
   }
 
   @media (min-width: ${props => props.theme.breakpoints.mobile}) and (max-width: ${props => props.theme.breakpoints.tablet}) {
     // 태블릿 크기  
-    font-size: 12px;
+    font-size: 11px;
 
   }
 

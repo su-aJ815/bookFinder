@@ -30,3 +30,63 @@
   z-index: 9999;
   background-color: #11100b;
 }
+
+//Extra Small Devices
+@media (max-width: 576px) {
+  .popup-size{
+    width: 90%;
+    height: 55%;
+  }
+
+  .detail-box{
+    margin-top: 36px;
+  }
+}
+
+//Small Devices
+@media (min-width: 576px) and (max-width: 768px) { 
+  .popup-size{
+    width: 90%;
+    height: 60%;
+  }
+
+  .detail-box{
+    margin-top: 48px;
+  }
+}
+
+//Medium Devices
+@media (min-width: 768px) and (max-width: 992px) {
+  .popup-size{
+    width: 70%;
+    height: 60%;
+  }
+
+  .detail-box{
+    margin-top: 48px;
+  }
+}
+
+//Large Devices
+@media (min-width: 992px) and (max-width: 1200px) {
+  .popup-size{
+    width: 60%;
+    height: 60%;
+  }
+
+  .detail-box{
+    margin-top: 64px;
+  }
+}
+
+//Extra Large Devices
+@media (min-width: 1200px) {
+  .popup-size{
+    width: 50%;
+    height: 60%;
+  }
+
+  .detail-box{
+    margin-top: 64px;
+  }
+}

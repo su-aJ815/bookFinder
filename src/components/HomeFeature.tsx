@@ -20,7 +20,7 @@ const Features = [
 function HomeFeature() {
     return (
         <ThemeProvider theme={theme}>
-            <div className="feature-box-container w-full flex flex-row justify-between border-y border-zinc-900">
+            <div className="feature-box-container w-full flex flex-row justify-between border-y border-zinc-900 hide-item">
                 {Features.map((feature, index) => (
                     <div className="feature-box" key={index}>
                         <FontAwesomeIcon

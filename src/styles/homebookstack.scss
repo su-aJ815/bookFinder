@@ -1,45 +1,152 @@
 //Extra Small Devices
 @media (max-width: 576px) {
-    
+  .containerA{
+    flex-direction: column;
+  }
+
+  .text-box{
+    height: auto;
+    width: 90%;
+    flex: 1;
+    flex-direction: column;
+    padding-left: 4px;
+    margin-left: auto;
+  }
+
+  .saying{
+    width: auto;
+    height: auto;
+    margin-right: 20px;
+    margin-top: 32px;
+  }
+
+  .stack-img{
+    width: 280px;
+    height: 200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hide-item{
+    display: none;
+  }
 }
 
 //Small Devices
-@media (min-width: 576px) and (max-width: 768px) { 
+@media (min-width: 576px) and (max-width: 768px) {
+  .containerA{
+    flex-direction: row;
+  }
 
+  .text-box{
+    height: auto;
+    width: 50vw;
+    margin-left: auto;
+    flex: 1;
+    flex-direction: column;
+    padding-left: 48px;
+  }
+
+  .saying{
+    width: 100%;
+    height: auto;
+    margin-top: 32px;
+  }
+
+  .stack-img{
+    width: 280px;
+    height: 220px;
+
+  }
+
+  .hide-item{
+    display: none;
+  }
 }
 
 //Medium Devices
 @media (min-width: 768px) and (max-width: 992px) {
-  .margin-left-box{
-      margin-left: 88px;
+  .containerA{
+    flex-direction: row;
+  }
+
+  .text-box{
+    height: 400px;
+    width: 50%;
+    margin-left: auto;
+    flex: 1;
+    flex-direction: column;
+    padding-left: 48px;
+  }
+
+  .saying{
+    width: 60%;
+    height: auto;
+    margin-top: 32px;
+    margin-left: 80px;
   }
 
   .stack-img{
       width: 320px;
       height: 250px;
+      margin-left: 88px;
   }
 }
 
 //Large Devices
 @media (min-width: 992px) and (max-width: 1200px) {
-  .margin-left-box{
-      margin-left: 208px;
+  .containerA{
+    flex-direction: row;
+  }
+
+  .text-box{
+    height: 400px;
+    width: 50%;
+    margin-left: auto;
+    flex: 1;
+    flex-direction: column;
+    padding-left: 48px;
+  }
+
+  .saying{
+    width: 60%;
+    height: auto;
+    margin-top: 32px;
+    margin-left: 80px;
   }
 
   .stack-img{
       width: 400px;
       height: 320px;
+      margin-left: 208px;
   }
 }
 
 //Extra Large Devices
 @media (min-width: 1200px) {
-  .margin-left-box{
-      margin-left: 208px;
+  .containerA{
+    flex-direction: row;
+  }
+
+  .text-box{
+    height: 400px;
+    width: 50%;
+    margin-left: auto;
+    flex: 1;
+    flex-direction: column;
+    padding-left: 48px;
+  }
+
+  .saying{
+    width: 60%;
+    height: auto;
+    margin-top: 32px;
+    margin-left: 80px;
   }
 
   .stack-img{
       width: 550px;
       height: 450px;
+      margin-left: 208px;
   }
 }

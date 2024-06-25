@@ -35,7 +35,7 @@ function Home() {
         <img
           src={backgroundBox}
           alt=""
-          className="rounded-l-lg w-2/5"
+          className="hide-item rounded-l-lg w-2/5"
           style={{
             height: "350px",
             zIndex: "-1",

@@ -1,15 +1,52 @@
 //Extra Small Devices
 @media (max-width: 576px) {
-    
+    .author-box{
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    .margin-left-box{
+        margin-left: 28px;
+    }
+
+    .margin-x-box{
+        margin-left: 88px;
+        margin-right: 88px;
+    }
+
+    .hide-item{
+        display: none;
+      }
   }
 
   //Small Devices
 @media (min-width: 576px) and (max-width: 768px) { 
+    .author-box{
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+    
+    .margin-left-box{
+        margin-left: 28px;
+    }
 
+    .margin-x-box{
+        margin-left: 28px;
+        margin-right: 28px;
+    }
+
+    .hide-item{
+        display: none;
+      }
  }
 
  //Medium Devices
  @media (min-width: 768px) and (max-width: 992px) {
+    .author-box{
+        margin-left: 192px;
+        margin-right: 192px;
+    }
+
     .margin-left-box{
         margin-left: 88px;
     }
@@ -22,6 +59,11 @@
 
  //Large Devices
  @media (min-width: 992px) and (max-width: 1200px) {
+    .author-box{
+        margin-left: 192px;
+        margin-right: 192px;
+    }
+
     .margin-left-box{
         margin-left: 208px;
     }
@@ -34,6 +76,11 @@
 
 //Extra Large Devices
 @media (min-width: 1200px) {
+    .author-box{
+        margin-left: 192px;
+        margin-right: 192px;
+    }
+
     .margin-left-box{
         margin-left: 208px;
     }
